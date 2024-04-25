@@ -43,21 +43,22 @@
     <h4 class="card p-2 separator mt-3 mb-3 text-center">After the Inspiration , lets get some super cars</h4>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 row-video mt-3">
-      {% for video_url, video_id in video_urls %}
+      
+      {% for video in video_data  %}
       <div class="col">
         <div class="card quote-cards rounded-4 shadow-2-strong">
           <div class="card-body">
             <h5 class="card-title text-white mb-1 fw-bold">Super Car</h5>
             <div class="embed-responsive embed-responsive-16by9 video-card-holder">
               <video class="embed-responsive-item video-label" controls>
-                <source src="{{ video_url }}" type="video/mp4">
+                <source src="{{ video.video_url }}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
             
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary mt-2 fw-bold" data-mdb-ripple-init data-mdb-modal-init
-              data-mdb-target="#videoModal{{ video_id }}" id="view-video">
+              data-mdb-target="#videoModal{{ video.id  }}" id="view-video">
               View Video Details
             </button>
           </div>
@@ -69,23 +70,24 @@
 
 
     <!-- Modal -->
-    {% for video_url, video_id in video_urls %}
-    <div class="modal fade" id="videoModal{{ video_id }}" tabindex="-1" aria-labelledby="videoModalLabel{{ video_id }}" aria-hidden="true">
+    {% for video in video_data  %}
+    <div class="modal fade" id="videoModal{{ video.id }}" tabindex="-1" aria-labelledby="videoModalLabel{{ video.id }}" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="videoModalLabel{{ video_id }}">Super Car Video</h5>
+            <h5 class="modal-title" id="videoModalLabel{{ video.id }}">Super Car Video</h5>
             <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal"
               aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <div class="embed-responsive embed-responsive-16by9 video-card-holder">
               <video class="embed-responsive-item video-label" controls >
-                <source src="{{ video_url }}" type="video/mp4">
+                <source src="{{ video.video_url }}" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p>videographer:</p> 
+            <p>videographer: {{video.user_name}}</p> 
+            <p>User URL: <a href="{{ video.user_url }}" target="_blank">{{ video.user_url }}</a></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary fw-bold" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
