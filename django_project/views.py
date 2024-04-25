@@ -1,17 +1,15 @@
 from django.shortcuts import render
 import requests
 
-def index(request):
-  r1 = requests.get('https://api.github.com/events')
-  data = r1.json()
-  events = data[0]['repo']
+def home(request):
+  quotes = []
+  while len(quotes) < 6:
+    response = requests.get('https://api.quotable.io/random')
+    if response.status_code == 200:
+        quote_content = response.json()['content']
+        if quote_content not in quotes:
+            quotes.append(quote_content)
+        else:
+            quotes.append("Failed to fetch quote")
   
-  r2 = requests.get('https://www.boredapi.com/api/activity')
-  data = r2.json()
-  activity  = data['activity']
-
-  r3 = requests.get('https://dog.ceo/api/breeds/image/random')
-  res3 = r3.json()
-  dog = res3['message']
-  
-  return render(request, 'templates/index.html', {'events': events, 'activity': activity, 'dog': dog})
+  return render(request, 'templates/index.html', {'quotes':quotes})
