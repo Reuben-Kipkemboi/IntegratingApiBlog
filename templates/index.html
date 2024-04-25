@@ -26,24 +26,40 @@
   <div class="container-fluid">
     <h3 class="text-center">"Elevate Your Mood with Words of Wisdom and a Splash of Fun! Dive into a World of Random
       Quotes and Playful GIFs for Instant Inspiration and Laughter!"</h3>
-    
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for quote in quotes %}
       <div class="col">
-          <div class="card quote-cards rounded-4 shadow-2-strong">
-              <div class="card-body">
-                  <h5 class="card-title text-white mb-1 fw-bold">Quote Corner</h5>
-                  <p class="card-text text-white">{{ quote }}</p>
-              </div>
+        <div class="card quote-cards rounded-4 shadow-2-strong">
+          <div class="card-body">
+            <h5 class="card-title text-white mb-1 fw-bold">Quote Corner</h5>
+            <p class="card-text text-white">{{ quote }}</p>
           </div>
+        </div>
       </div>
       {% endfor %}
-  </div>
+    </div>
+
+    <h4 class="card p-2 separator">After the Inspiration , lets get some super cars</h4>
     
-
-
-    <h1>Random Dog Breeds?</h1>
-    <img src="{{ dog }}" alt="Random Dog Image">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {% for video_url in video_urls %}
+      <div class="col">
+        <div class="card quote-cards rounded-4 shadow-2-strong">
+          <div class="card-body">
+            <h5 class="card-title text-white mb-1 fw-bold">Super Car</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+              <video class="embed-responsive-item" controls>
+                <source src="{{ video_url }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
 
   </div>
   <!-- MDB -->
