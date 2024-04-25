@@ -10,7 +10,8 @@ img {
   height: auto;
 }
 .quote-cards{
-  background-color: #2264C0;
+  background-color: #1e4e91;
+  
   
 }
 
@@ -19,8 +20,12 @@ img {
 }
 
 .separator{
-  background-color: #1e4e91;
+  background-color: #2264C0;;
   color: #dce4ef;
   font-weight: 700;
-  
+  margin-top: 10px;
+
+}
+.row-video{
+  background-color: #2264C0;
 }
