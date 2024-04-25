@@ -43,3 +43,13 @@ img {
   background-color: #F0F2F8;
   color: #000000;
 }
+
+.user-link{
+  font-style: italic;
+  color: #1e4e91;
+
+}
+.username{
+color: #1e4e91;
+font-weight: 700;
+}

@@ -41,6 +41,10 @@
     </div>
 
     <h4 class="card p-2 separator mt-3 mb-3 text-center">After the Inspiration , lets get some super cars</h4>
+    
+    <a href="https://www.pexels.com">
+      <img src="https://images.pexels.com/lib/api/pexels.png" />
+    </a>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 row-video mt-3">
       
@@ -86,8 +90,8 @@
                 Your browser does not support the video tag.
               </video>
             </div>
-            <p>videographer: {{video.user_name}}</p> 
-            <p>User URL: <a href="{{ video.user_url }}" target="_blank">{{ video.user_url }}</a></p>
+            <p>videographer: <span class="username">{{video.user_name}}</span></p> 
+            <p>Videographer Link: <a class="user-link"href="{{ video.user_url }}" target="_blank">{{ video.user_url }}</a></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary fw-bold" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
