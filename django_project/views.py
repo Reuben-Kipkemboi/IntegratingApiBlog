@@ -29,21 +29,12 @@ def home(request):
     # Handle the response
     if response.status_code == 200:
         video_data = response.json()['videos']
-        video_urls = [video['video_files'][0]['link'] for video in video_data]
+        # video_urls = [video['video_files'][0]['link'] for video in video_data]
+        video_urls = [(video['video_files'][0]['link'], video['id']) for video in video_data]
+        
     else:
         video_urls = []  
 
-    
-    gif_urls=[]
-    for _ in range(10):
-        gif_response = requests.get(f'https://api.giphy.com/v1/gifs/random?api_key={api_key}')
-        if gif_response.status_code == 200:
-            gif_url = gif_response.json()['data']['images']['downsized']['url']
-            gif_urls.append(gif_url)
-        else:
-            # this is like a fallback giphy
-            gif_urls.append("https://media.giphy.com/media/yFQ0ywscgobJK/giphy.gif")  
-    
 
   
   return render(request, 'templates/index.html', {'quotes':quotes, 'video_urls': video_urls})
