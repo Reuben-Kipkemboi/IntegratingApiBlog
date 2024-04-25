@@ -7,11 +7,13 @@ def home(request):
   while len(quotes) < 6:
     response = requests.get('https://api.quotable.io/random')
     if response.status_code == 200:
-        quote_content = response.json()['content']
+        quote_data = response.json()
+        quote_content = quote_data['content']
+        quote_author = quote_data['author']
         if quote_content not in quotes:
-            quotes.append(quote_content)
+            quotes.append({'content': quote_content, 'author': quote_author})
         else:
-            quotes.append("Failed to fetch quote")
+            quotes.append({'content': "Failed to fetch quote", 'author': "Unknown"})
             
   # Fetch cars from the pexels api in terms of videos--
     api_key = '4ounCQ02Y4DWHYHQQ69ZglThi8c7FtpemrBZ1BC1Vm1E8lA8heRc51xh'

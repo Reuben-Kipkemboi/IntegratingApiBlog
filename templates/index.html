@@ -23,9 +23,9 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid mt-2">
     <h3 class="text-center">"Elevate Your Mood with Words of Wisdom and a Splash of Fun! Dive into a World of Random
-      Quotes and Playful GIFs for Instant Inspiration and Laughter!"</h3>
+      Quotes and Amazing Super Cars for Instant Inspiration and Laughter!"</h3>
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {% for quote in quotes %}
@@ -33,7 +33,14 @@
         <div class="card quote-cards rounded-4 shadow-2-strong">
           <div class="card-body">
             <h5 class="card-title text-white mb-1 fw-bold">Quote Corner</h5>
-            <p class="card-text text-white">{{ quote }}</p>
+            <p class="card-text text-white mb-2">{{ quote.content }}</p>
+            
+            <div class="d-flex align-items-center text-white">
+              <i class="fas fa-circle-user me-3 fs-3"></i>
+              <p class="card-title mb-0">{{ quote.author }}</p>
+            </div>
+
+
           </div>
         </div>
       </div>
